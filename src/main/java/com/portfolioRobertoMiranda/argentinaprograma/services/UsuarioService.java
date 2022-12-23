@@ -1,6 +1,7 @@
 package com.portfolioRobertoMiranda.argentinaprograma.services;
 
 
+import com.portfolioRobertoMiranda.argentinaprograma.exception.UserNotFoundException;
 import com.portfolioRobertoMiranda.argentinaprograma.models.Usuario;
 import com.portfolioRobertoMiranda.argentinaprograma.repository.UsuarioRepo;
 import jakarta.transaction.Transactional;
@@ -34,5 +35,9 @@ public class UsuarioService {
 
     public void borrarUsuario(Long id){
         usuarioRepo.deleteById(id);
+    }
+
+    public Usuario buscarUsuarioPorId(Long id){
+        return usuarioRepo.findById(id).orElseThrow(() -> new UserNotFoundException("Usuario con id " + id + " no existe"));
     }
 }
