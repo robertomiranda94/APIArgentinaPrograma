@@ -10,12 +10,17 @@ import java.util.List;
 public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false, name = "id")
     private Long id;
+    @Column(nullable = false, updatable = false, name = "nombre")
     private String nombre;
+    @Column(nullable = false, updatable = false, name = "apellido")
     private String apellido;
+    @Column(nullable = false, updatable = false, name = "titulo")
     private String titulo;
+    @Column(nullable = false, updatable = false, name = "descripcion")
     private String descripcion;
+    @Column(nullable = false, updatable = false, name = "foto_perfil")
     private String fotoPerfil;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idEdu")

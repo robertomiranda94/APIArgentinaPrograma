@@ -1,22 +1,28 @@
 package com.portfolioRobertoMiranda.argentinaprograma.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Educacion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, name = "id_edu")
     private Long idEdu;
+    @Column(name= "titulo_edu", length = 100, nullable = false)
     private String tituloEdu;
+
+    @Column(name= "fecha_edu", columnDefinition = "DATE", nullable = false)
     private int fechaEdu;
+
+
+
+    @Column(name= "desc_edu", length = 200, nullable = false)
     private String descEdu;
+
+    @Column(name= "imagen_edu", length = 100, nullable = false)
     private String imagenEdu;
 
     public Educacion() {
-
     }
 
     public Educacion(Long idEdu, String tituloEdu, int fechaEdu, String descEdu, String imagenEdu) {
